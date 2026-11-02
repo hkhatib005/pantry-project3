@@ -1,6 +1,6 @@
 # Pantry — Project 3 Async React
 
-A responsive recipe explorer built with React and Vite. Search names, cuisines, and ingredients; combine cuisine and total-time filters; sort recipes; and open full cooking instructions.
+A responsive recipe explorer built with React and Vite. Search names, cuisines, and ingredients; combine cuisine and total-time filters; sort recipes; save favorites in your browser; filter by difficulty or saved recipes; and open full cooking instructions.
 
 ## Run locally
 
