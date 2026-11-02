@@ -58,3 +58,19 @@ Suggested submission comment: “I used the DummyJSON Recipes API; turn on Error
 Trace `App` → `RecipeCollection` → `useFetch`. Explain why the effect depends on URL, retry attempt, and a module-level validator; why cleanup cancels obsolete requests; why HTTP errors need an explicit `response.ok` check; and why a filtered view is calculated rather than synchronized using another effect. `RecipeDetail` makes an independent request using the same hook.
 
 Review the implementation and be ready to explain each part before submitting. Commit actual changes as development continues.
+
+## Deploy to Cloudflare
+
+This is a static Vite app. Cloudflare must serve the compiled `dist` directory rather than the source `index.html`.
+
+### Cloudflare Pages
+
+Import the GitHub repository as a Pages project. Choose production branch `main`, framework preset **React (Vite)**, build command `npm run build`, output directory `dist`, and repository root `/`. Leave the root directory field blank if the dashboard represents the repository root that way. Pages does not need a Worker deploy command.
+
+### Cloudflare Workers with static assets
+
+The included `wrangler.jsonc` declares the built assets and SPA fallback. Use build command `npm run build` and deploy command `npx wrangler deploy`. If your Cloudflare Worker has a different name, update `name` in `wrangler.jsonc` to match that Worker. Do not set a JavaScript entry point to the React source or `index.html`: this deployment serves static assets without a Worker script.
+
+If uploading files manually, run `npm ci` and `npm run build`, then upload the contents of `dist`. Uploading the source ZIP does not build the app.
+
+The assignment specifies Netlify; confirm with your instructor before using a Cloudflare URL for grading.
