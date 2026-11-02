@@ -69,7 +69,7 @@ Import the GitHub repository as a Pages project. Choose production branch `main`
 
 ### Cloudflare Workers with static assets
 
-The included `wrangler.jsonc` declares the built assets and SPA fallback. Use build command `npm run build` and deploy command `npx wrangler deploy`. If your Cloudflare Worker has a different name, update `name` in `wrangler.jsonc` to match that Worker. Do not set a JavaScript entry point to the React source or `index.html`: this deployment serves static assets without a Worker script.
+The included `wrangler.jsonc` declares the built assets and SPA fallback. Set the Cloudflare dashboard build command to `npm run build` and deploy command to `npx wrangler deploy`. Workers Builds does not honor Wrangler custom build settings. The included custom build command also supports local Wrangler deployment. If your Cloudflare Worker has a different name, update `name` in `wrangler.jsonc` to match that Worker. Do not set a JavaScript entry point to the React source or `index.html`: this deployment serves static assets without a Worker script.
 
 If uploading files manually, run `npm ci` and `npm run build`, then upload the contents of `dist`. Uploading the source ZIP does not build the app.
 
